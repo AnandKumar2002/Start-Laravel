@@ -13,13 +13,16 @@
     <ul class="p-4">
         @foreach($anands as $anand)
         <li class="text-2xl p-2 flex flex-col gap-2">
-            <!-- <a href="{{ url('anand/' . $anand['id']) }}" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 flex justify-center">
+            {{-- <a href="{{ url('anand/' . $anand['id']) }}" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 flex justify-center">
                 {{ $anand['name'] }}
-            </a> -->
+            </a> --}}
             <a href="./anand/{{$anand['id']}}" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 flex justify-center">{{$anand["name"]}}</a>
         </li>
         @endforeach
     </ul>
+    <div class="flex justify-center gap-4">
+    <a href="/user" class="bg-gray-500 text-white px-3 py-1 rounded-full">Go to user</a>
+    </div>
 </body>
 
 </html>

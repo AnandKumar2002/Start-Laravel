@@ -1,10 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('user', [UserController::class,'getUser']);
+Route::get('user/{name}', [UserController::class,'getUserName']);
+Route::get("user/{name}/{id}", [UserController::class,'getPostDetails'])->name('user.postDetails');
 
 
 Route::get('/about', function () {
@@ -30,3 +35,5 @@ Route::get("/anand/{id}", function ($id) {
 
     return view('anand.ananddetails', ["anands" => $anand[$id - 1]]);
 });
+
+Route::view("/simple", "simpleView.index");
