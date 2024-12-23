@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -11,6 +12,9 @@ Route::get('user', [UserController::class,'getUser']);
 Route::get('user/{name}', [UserController::class,'getUserName']);
 Route::get("user/{name}/{id}", [UserController::class,'getPostDetails'])->name('user.postDetails');
 
+Route::get("home",  [HomeController::class,'getHomeData']);
+
+Route::view('common', "common.index");
 
 Route::get('/about', function () {
     return view('about.index', ["name" => "Anand"]);
