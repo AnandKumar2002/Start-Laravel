@@ -1,12 +1,17 @@
 <?php
 
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UploadController;
 use App\Http\Middleware\ageCheck;
 use App\Http\Middleware\countryCheck;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserFormController;
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
     return view('welcome');
@@ -69,3 +74,18 @@ Route::controller(StudentController::class)->group(function() {
 Route::middleware('check1')->group(function() {
     Route::view('common', "common.index");
 });
+
+Route::view('upload', "upload.index");
+Route::post('upload', [UploadController::class, 'upload']);
+
+// Route::get('/test-mail', function() {
+//     $subject = "NEW";
+//     $res = Mail::to('deepanshu@netgen.in')->send(new TestMail($subject));
+//     dd($res);
+// });
+
+Route::get('/test-mail', [MailController::class, 'sendEmail']);
+
+Route::view('/tesForm', 'content.create')->name('contact');
+Route::post('/submit-form/create', [FormController::class, 'store'])->name('form.submit');
+Route::view('test', 'components.test');

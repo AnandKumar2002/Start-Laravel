@@ -8,7 +8,7 @@
     @vite(["resources/css/app.css"])
 </head>
 <body>
-    
+    <x-test></x-test>
     <div class="bg-gray-200 p-6 rounded-lg shadow-md">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Sub View Section</h2>
         <p class="text-gray-700 mb-4">

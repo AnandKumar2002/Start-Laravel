@@ -4,8 +4,9 @@
     <title>Home</title>
     @vite(["resources/css/app.css"])
 </head>
-<body class="bg-gray-100 text-gray-800 p-6">
-    <div class="container mx-auto">
+<body class="bg-gray-100 text-gray-800">
+    <x-test></x-test>
+    <div class="container mx-auto p-6">
         <h1 class="text-4xl font-bold text-blue-600 mb-4">Welcome, {{ $name }}</h1>
         
         <ul class="list-disc pl-5 mb-6">

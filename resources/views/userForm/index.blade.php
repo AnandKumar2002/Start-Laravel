@@ -11,8 +11,9 @@
     <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-4">
         <h1 class="text-3xl font-bold text-center mb-6 text-blue-600">User Form</h1>
 
-        <form action="addUser" method="POST" class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <form action="addUser" method="POST">
             @csrf
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
             <!-- Name Field -->
             <div>
                 <label for="name" class="block text-gray-700 font-medium mb-2">Name:</label>
@@ -84,7 +85,7 @@
                 <label for="experience" class="block text-gray-700 font-medium mb-2">Experience (Years):</label>
                 <input type="range" id="experience" name="experience" min="0" max="10" value="{{ old('experience', 0) }}" 
                     class="w-full focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                <span class="text-gray-600 text-sm block mt-2">Selected: {{ old('experience', 0) }} years</span>
+                {{-- <span class="text-gray-600 text-sm block mt-2">Selected: {{ old('experience', 0) }} years</span> --}}
                 <span class="text-red-500 text-sm mt-1 block">@error('experience'){{$message}}@enderror</span>
             </div>
 
@@ -100,31 +101,15 @@
                 </select>
                 <span class="text-red-500 text-sm mt-1 block">@error('country'){{$message}}@enderror</span>
             </div>
-
+        </div>
             <!-- Submit Button -->
             <button type="submit" 
-                class="w-full bg-blue-500 text-white py-3 rounded-lg font-medium hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                class="w-auto px-6 mt-2 bg-blue-500 text-white py-3 rounded-lg font-medium hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
                 Submit
             </button>
         </form>
     </div>
 
-    <script>
-        document.getElementById('phone').addEventListener('input', function(event) {
-            let input = event.target.value;
-            const cursorPosition = event.target.selectionStart;
-            input = input.replace(/\D/g, '');
-        
-            if (input.length > 10) {
-                input = input.slice(0, 10);
-            }
-        
-            event.target.value = input;
-        
-            if (cursorPosition <= 10) {
-                event.target.setSelectionRange(cursorPosition, cursorPosition);
-            }
-        });
-    </script>
+    @vite(['resources/js/form.js'])
 </body>
 </html>

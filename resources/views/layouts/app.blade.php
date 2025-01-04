@@ -9,8 +9,8 @@
 
 <body class="bg-gray-500 h-screen">
     <div class="flex flex-col justify-center items-center h-full gap-4">
-        {{ $slot }}
-        {{-- <?php echo $slot ?> --}}
+        @yield('content')
+
     </div>
 <footer></footer>
     @stack('scripts')

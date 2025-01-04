@@ -14,8 +14,11 @@
         <h1 class="text-3xl p-4 bg-blue-500 rounded-lg font-bold text-white">
             Anand Kumar
         </h1>
+        <x-test title="MY PAGE" />
         <a href="{{route('hm')}}"> Go To Home page</a>
     </div>
 </body>
 
 </html>
+
+{{-- Template engine --}}

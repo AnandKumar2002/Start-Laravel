@@ -7,6 +7,7 @@
         @vite(["resources/css/app.css"])
     </head>
     <body>
+        <x-test></x-test>
         <div class="h-screen">
 
             <header class="bg-blue-600 text-black text-center py-4">
