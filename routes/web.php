@@ -3,6 +3,7 @@
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\SellerController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UploadController;
 use App\Http\Middleware\ageCheck;
@@ -89,3 +90,7 @@ Route::get('/test-mail', [MailController::class, 'sendEmail']);
 Route::view('/tesForm', 'content.create')->name('contact');
 Route::post('/submit-form/create', [FormController::class, 'store'])->name('form.submit');
 Route::view('test', 'components.test');
+
+Route::get('list', [SellerController::class, 'list']);
+Route::get('many', [SellerController::class, 'many']);
+Route::get('manyToOne', [SellerController::class, 'manyToOne']);
